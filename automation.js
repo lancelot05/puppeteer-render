@@ -9,7 +9,7 @@ const automation = async (res) => {
       "--single-process",
       "--no-zygote",
     ],
-    headless: false,
+    headless: true,
     executablePath:
       process.env.NODE_ENV === "production"
         ? process.env.PUPPETEER_EXECUTABLE_PATH
@@ -20,7 +20,7 @@ const automation = async (res) => {
     const page = await browser.newPage();
     await page.setViewport({ width: 1080, height: 1024 });
     await page.goto("https://google.com");
-    await page.type(".gLFyf", "datasphere");
+    await page.type(".gLFyf", "atharva");
     await page.evaluate(() => {
       document.querySelector("input[name=btnK]").click();
     });
